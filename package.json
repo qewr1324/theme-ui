@@ -3,12 +3,12 @@
 	"type": "module",
 	"displayName": "Theme UI",
 	"description": "🧊 Theme UI - Theme UI is an extension for creating and building your own custom theme for 💠 VSCode. ",
-	"version": "1.3.20",
+	"version": "1.15.21",
 	"private": false,
 	"publisher": "GhurbeSABZI",
 	"packageManager": "bun@1.3.14",
 	"author": "GhurbeSABZI <naiad.arts.studio@gmail.com>",
-	"icon": "res/era-icon-big.png",
+	"icon": "res/theme-icon-big.png",
 	"license": "MIT",
 	"homepage": "https://github.com/qewr1324/theme-ui#readme",
 	"repository": {
@@ -43,7 +43,64 @@
 		"onStartupFinished"
 	],
 	"main": "./dist/extension.cjs",
-	"contributes": {},
+	"contributes": {
+		"themes": [
+			{
+				"label": "Darkula (IntelliJ Dark Classic)",
+				"uiTheme": "vs-dark",
+				"path": "./src/themes/darkula.json"
+			},
+			{
+				"label": "Lightula (IntelliJ Light Classic)",
+				"uiTheme": "vs",
+				"path": "./src/themes/lightula.json"
+			},
+			{
+				"label": "Microsoft Dark",
+				"uiTheme": "vs-dark",
+				"path": "./src/themes/microsoft-dark.json"
+			},
+			{
+				"label": "Microsoft Light",
+				"uiTheme": "vs",
+				"path": "./src/themes/microsoft-light.json"
+			},
+			{
+				"label": "GhurbeSABZI Darkula",
+				"uiTheme": "vs-dark",
+				"path": "./src/themes/ghurbeSABZI-darkula.json"
+			},
+			{
+				"label": "GhurbeSABZI Microsoft",
+				"uiTheme": "vs-dark",
+				"path": "./src/themes/ghurbeSABZI-microsoft.json"
+			},
+			{
+				"label": "GhurbeSABZI Intellij Classic",
+				"uiTheme": "vs-dark",
+				"path": "./src/themes/ghurbeSABZI-intellij-classic.json"
+			},
+			{
+				"label": "GhurbeSABZI Intellij Modern",
+				"uiTheme": "vs-dark",
+				"path": "./src/themes/ghurbeSABZI-intellij-modern.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "theme-ui.showThemeMenu",
+				"title": "Show Theme Menu"
+			},
+			{
+				"command": "theme-ui.createTheme",
+				"title": "Create New Theme"
+			},
+			{
+				"command": "theme-ui.editTheme",
+				"title": "Edit Theme"
+			}
+		]
+	},
 	"scripts": {
 		"-----------builds-----------": "",
 		"vscode:prepublish": "bun run build",

@@ -1,0 +1,101 @@
+{
+	"$schema": "vscode://schemas/color-theme",
+	"type": "dark",
+	"colors": {
+		"editor.background": "#1E1E1E",
+		"editor.foreground": "#D4D4D4",
+		"editor.inactiveSelectionBackground": "#3A3D41",
+		"editorIndentGuide.background1": "#404040",
+		"editor.selectionHighlightBackground": "#ADD6FF26",
+		"editor.lineHighlightBackground": "#2B2B2B",
+		"activityBar.background": "#333333",
+		"activityBar.foreground": "#FFFFFF",
+		"activityBar.inactiveForeground": "#858585",
+		"sideBar.background": "#252526",
+		"sideBar.foreground": "#CCCCCC",
+		"sideBar.border": "#3E3E3E",
+		"statusBar.background": "#007ACC",
+		"statusBar.foreground": "#FFFFFF",
+		"titleBar.activeBackground": "#3C3C3C",
+		"titleBar.activeForeground": "#FFFFFF",
+		"terminal.background": "#1E1E1E",
+		"terminal.foreground": "#D4D4D4",
+		"panel.background": "#1E1E1E",
+		"panel.border": "#3E3E3E"
+	},
+	"tokenColors": [
+		{
+			"name": "Comments",
+			"scope": ["comment", "punctuation.definition.comment"],
+			"settings": {
+				"foreground": "#6A9955"
+			}
+		},
+		{
+			"name": "Keywords",
+			"scope": ["keyword", "storage.type", "storage.modifier"],
+			"settings": {
+				"foreground": "#569CD6"
+			}
+		},
+		{
+			"name": "Strings",
+			"scope": ["string", "string.quoted"],
+			"settings": {
+				"foreground": "#CE9178"
+			}
+		},
+		{
+			"name": "Functions",
+			"scope": ["entity.name.function", "support.function"],
+			"settings": {
+				"foreground": "#DCDCAA"
+			}
+		},
+		{
+			"name": "Types",
+			"scope": ["entity.name.type", "entity.name.class", "support.type"],
+			"settings": {
+				"foreground": "#4EC9B0"
+			}
+		},
+		{
+			"name": "Numbers",
+			"scope": ["constant.numeric"],
+			"settings": {
+				"foreground": "#B5CEA8"
+			}
+		},
+		{
+			"name": "Operators",
+			"scope": ["keyword.operator"],
+			"settings": {
+				"foreground": "#D4D4D4"
+			}
+		},
+		{
+			"name": "Variables",
+			"scope": ["variable", "variable.other"],
+			"settings": {
+				"foreground": "#9CDCFE"
+			}
+		}
+	],
+	"semanticHighlighting": true,
+	"semanticTokenColors": {
+		"class": "#4EC9B0",
+		"interface": "#4EC9B0",
+		"enum": "#4EC9B0",
+		"typeParameter": "#569CD6",
+		"type": "#569CD6",
+		"parameter": "#9CDCFE",
+		"variable": "#9CDCFE",
+		"property": "#9CDCFE",
+		"method": "#DCDCAA",
+		"function": "#DCDCAA",
+		"keyword": "#569CD6",
+		"number": "#B5CEA8",
+		"string": "#CE9178",
+		"comment": "#6A9955"
+	}
+}

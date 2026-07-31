@@ -1,0 +1,64 @@
+{
+	"$schema": "vscode://schemas/color-theme",
+	"type": "light",
+	"colors": {
+		"editor.background": "#FFFFFF",
+		"editor.foreground": "#000000",
+		"editor.lineHighlightBackground": "#F0F0F0",
+		"editor.selectionBackground": "#ADD6FF",
+		"activityBar.background": "#DDDDDD",
+		"activityBar.foreground": "#333333",
+		"sideBar.background": "#F3F3F3",
+		"sideBar.foreground": "#333333",
+		"statusBar.background": "#007ACC",
+		"statusBar.foreground": "#FFFFFF",
+		"titleBar.activeBackground": "#DDDDDD",
+		"terminal.background": "#FFFFFF",
+		"terminal.foreground": "#000000",
+		"panel.background": "#FFFFFF"
+	},
+	"tokenColors": [
+		{
+			"name": "Comments",
+			"scope": ["comment"],
+			"settings": {
+				"foreground": "#008000"
+			}
+		},
+		{
+			"name": "Keywords",
+			"scope": ["keyword", "storage.type"],
+			"settings": {
+				"foreground": "#0000FF"
+			}
+		},
+		{
+			"name": "Strings",
+			"scope": ["string"],
+			"settings": {
+				"foreground": "#A31515"
+			}
+		},
+		{
+			"name": "Functions",
+			"scope": ["entity.name.function"],
+			"settings": {
+				"foreground": "#795E26"
+			}
+		},
+		{
+			"name": "Types",
+			"scope": ["entity.name.type"],
+			"settings": {
+				"foreground": "#267F99"
+			}
+		},
+		{
+			"name": "Numbers",
+			"scope": ["constant.numeric"],
+			"settings": {
+				"foreground": "#098658"
+			}
+		}
+	]
+}
