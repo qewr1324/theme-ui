@@ -45,7 +45,7 @@ export function activate(context: vscode.ExtensionContext) {
 async function showThemeMenu(themeManager: ThemeManager, context: vscode.ExtensionContext) {
 	const menuOptions = [
 		{
-			label: "$(color-mode) Built-in Themes",
+			label: "$(color-mode) Intellij Themes",
 			kind: vscode.QuickPickItemKind.Separator,
 		},
 		{
@@ -64,6 +64,10 @@ async function showThemeMenu(themeManager: ThemeManager, context: vscode.Extensi
 			themeId: "intellij-lightula",
 		},
 		{
+			label: "$(color-mode) Microsoft Themes",
+			kind: vscode.QuickPickItemKind.Separator,
+		},
+		{
 			label: "Microsoft Dark",
 			description: "Microsoft dark theme",
 			themeId: "microsoft-dark",
@@ -72,6 +76,20 @@ async function showThemeMenu(themeManager: ThemeManager, context: vscode.Extensi
 			label: "Microsoft Light",
 			description: "Microsoft light theme",
 			themeId: "microsoft-light",
+		},
+		{
+			label: "$(star) GhurbeSABZI Themes",
+			kind: vscode.QuickPickItemKind.Separator,
+		},
+		{
+			label: "GhurbeSABZI Darkest",
+			description: "Dark military green theme with MS syntax",
+			themeId: "ghurbeSABZI-darkest",
+		},
+		{
+			label: "GhurbeSABZI Lightest",
+			description: "Light green theme with IntelliJ syntax",
+			themeId: "ghurbeSABZI-lightest",
 		},
 		{
 			label: "$(folder) Self Themes",
@@ -112,6 +130,16 @@ async function showThemeMenu(themeManager: ThemeManager, context: vscode.Extensi
 			description: "Create new theme based on Microsoft light",
 			baseTheme: "microsoft-light",
 		},
+		{
+			label: "Create from GhurbeSABZI Darkest",
+			description: "Create new theme based on GhurbeSABZI Darkest",
+			baseTheme: "ghurbeSABZI-darkest",
+		},
+		{
+			label: "Create from GhurbeSABZI Lightest",
+			description: "Create new theme based on GhurbeSABZI Lightest",
+			baseTheme: "ghurbeSABZI-lightest",
+		}
 	];
 
 	const selected = await vscode.window.showQuickPick(menuOptions, {
@@ -144,7 +172,6 @@ async function applyTheme(themeManager: ThemeManager, themeId: string, isCustom:
 				"microsoft-light": "Microsoft Light",
 				"ghurbeSABZI-darkest": "GhurbeSABZI Darkest",
 				"ghurbeSABZI-lightest": "GhurbeSABZI Lightest",
-				"ghurbeSABZI-grayest": "GhurbeSABZI Grayest",
 			};
 
 			const themeName = themeMap[themeId];
@@ -200,6 +227,9 @@ async function createTheme(themeManager: ThemeManager, context: vscode.Extension
 			{ label: "Intellij Lightula", id: "intellij-lightula" },
 			{ label: "Microsoft Dark", id: "microsoft-dark" },
 			{ label: "Microsoft Light", id: "microsoft-light" },
+			{ label: "GhurbeSABZI Darkest", id: "ghurbeSABZI-darkest" },
+			{ label: "GhurbeSABZI Lightest", id: "ghurbeSABZI-lightest" },
+			{ label: "GhurbeSABZI Grayest", id: "ghurbeSABZI-grayest" },
 		],
 		{
 			placeHolder: "Select base theme",
@@ -358,7 +388,6 @@ function getThemeEditorHtml(webview: vscode.Webview, context: vscode.ExtensionCo
                 function buildEditor() {
                     const sections = document.getElementById('themeSections');
                     
-                    // Colors section
                     if (themeData.colors) {
                         const colorSection = document.createElement('div');
                         colorSection.className = 'section';
@@ -378,7 +407,6 @@ function getThemeEditorHtml(webview: vscode.Webview, context: vscode.ExtensionCo
                         sections.appendChild(colorSection);
                     }
                     
-                    // Token Colors section
                     if (themeData.tokenColors) {
                         const tokenSection = document.createElement('div');
                         tokenSection.className = 'section';
@@ -399,7 +427,6 @@ function getThemeEditorHtml(webview: vscode.Webview, context: vscode.ExtensionCo
                         sections.appendChild(tokenSection);
                     }
                     
-                    // Add event listeners
                     document.querySelectorAll('.color-input').forEach(input => {
                         input.addEventListener('input', updateColor);
                     });
@@ -417,20 +444,17 @@ function getThemeEditorHtml(webview: vscode.Webview, context: vscode.ExtensionCo
                     
                     const newColor = element.value;
                     
-                    // Update paired input/picker
                     const pair = isColorInput 
                         ? element.nextElementSibling 
                         : element.previousElementSibling;
                     if (pair) pair.value = newColor;
                     
-                    // Update theme data
                     if (colorKey) {
                         themeData.colors[colorKey] = newColor;
                     } else if (tokenIndex !== undefined) {
                         themeData.tokenColors[tokenIndex].settings.foreground = newColor;
                     }
                     
-                    // Update preview background
                     if (colorKey === 'editor.background') {
                         document.querySelector('.theme-preview').style.background = newColor;
                     }
@@ -453,7 +477,6 @@ function getThemeEditorHtml(webview: vscode.Webview, context: vscode.ExtensionCo
                     });
                 }
                 
-                // Initialize editor
                 buildEditor();
             </script>
         </body>
