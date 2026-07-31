@@ -49,48 +49,29 @@ async function showThemeMenu(themeManager: ThemeManager, context: vscode.Extensi
 			kind: vscode.QuickPickItemKind.Separator,
 		},
 		{
-			label: "Darkula (IntelliJ Dark Classic)",
-			description: "Dark theme based on IntelliJ",
-			themeId: "darkula",
+			label: "Intellij Darkula Classic",
+			description: "IntelliJ classic dark (orange/yellow syntax)",
+			themeId: "intellij-darkula-classic",
 		},
 		{
-			label: "Lightula (IntelliJ Light Classic)",
-			description: "Light theme based on IntelliJ",
-			themeId: "lightula",
+			label: "Intellij Darkula Modern",
+			description: "IntelliJ modern dark (blue syntax)",
+			themeId: "intellij-darkula-modern",
+		},
+		{
+			label: "Intellij Lightula",
+			description: "IntelliJ light theme",
+			themeId: "intellij-lightula",
 		},
 		{
 			label: "Microsoft Dark",
-			description: "Microsoft dark theme style",
+			description: "Microsoft dark theme",
 			themeId: "microsoft-dark",
 		},
 		{
 			label: "Microsoft Light",
-			description: "Microsoft light theme style",
+			description: "Microsoft light theme",
 			themeId: "microsoft-light",
-		},
-		{
-			label: "$(star) GhurbeSABZI Themes",
-			kind: vscode.QuickPickItemKind.Separator,
-		},
-		{
-			label: "GhurbeSABZI Darkula",
-			description: "Custom darkula with personal settings",
-			themeId: "ghurbeSABZI-darkula",
-		},
-		{
-			label: "GhurbeSABZI Microsoft",
-			description: "Custom Microsoft theme",
-			themeId: "ghurbeSABZI-microsoft",
-		},
-		{
-			label: "GhurbeSABZI Intellij Classic",
-			description: "Custom IntelliJ classic theme",
-			themeId: "ghurbeSABZI-intellij-classic",
-		},
-		{
-			label: "GhurbeSABZI Intellij Modern",
-			description: "Custom IntelliJ modern theme",
-			themeId: "ghurbeSABZI-intellij-modern",
 		},
 		{
 			label: "$(folder) Self Themes",
@@ -107,19 +88,29 @@ async function showThemeMenu(themeManager: ThemeManager, context: vscode.Extensi
 			kind: vscode.QuickPickItemKind.Separator,
 		},
 		{
-			label: "Create from Darkula",
-			description: "Create new theme based on Darkula",
-			baseTheme: "darkula",
+			label: "Create from Intellij Darkula Classic",
+			description: "Create new theme based on IntelliJ classic dark",
+			baseTheme: "intellij-darkula-classic",
 		},
 		{
-			label: "Create from Lightula",
-			description: "Create new theme based on Lightula",
-			baseTheme: "lightula",
+			label: "Create from Intellij Darkula Modern",
+			description: "Create new theme based on IntelliJ modern dark",
+			baseTheme: "intellij-darkula-modern",
+		},
+		{
+			label: "Create from Intellij Lightula",
+			description: "Create new theme based on IntelliJ light",
+			baseTheme: "intellij-lightula",
 		},
 		{
 			label: "Create from Microsoft Dark",
-			description: "Create new theme based on Microsoft Dark",
+			description: "Create new theme based on Microsoft dark",
 			baseTheme: "microsoft-dark",
+		},
+		{
+			label: "Create from Microsoft Light",
+			description: "Create new theme based on Microsoft light",
+			baseTheme: "microsoft-light",
 		},
 	];
 
@@ -146,14 +137,14 @@ async function applyTheme(themeManager: ThemeManager, themeId: string, isCustom:
 		} else {
 			// Map theme IDs to actual theme names in package.json
 			const themeMap: Record<string, string> = {
-				darkula: "Darkula (IntelliJ Dark Classic)",
-				lightula: "Lightula (IntelliJ Light Classic)",
+				"intellij-darkula-classic": "Intellij Darkula Classic",
+				"intellij-darkula-modern": "Intellij Darkula Modern",
+				"intellij-lightula": "Intellij Lightula",
 				"microsoft-dark": "Microsoft Dark",
 				"microsoft-light": "Microsoft Light",
-				"ghurbeSABZI-darkula": "GhurbeSABZI Darkula",
-				"ghurbeSABZI-microsoft": "GhurbeSABZI Microsoft",
-				"ghurbeSABZI-intellij-classic": "GhurbeSABZI Intellij Classic",
-				"ghurbeSABZI-intellij-modern": "GhurbeSABZI Intellij Modern",
+				"ghurbeSABZI-darkest": "GhurbeSABZI Darkest",
+				"ghurbeSABZI-lightest": "GhurbeSABZI Lightest",
+				"ghurbeSABZI-grayest": "GhurbeSABZI Grayest",
 			};
 
 			const themeName = themeMap[themeId];
@@ -204,8 +195,9 @@ async function createThemeFromBase(themeManager: ThemeManager, context: vscode.E
 async function createTheme(themeManager: ThemeManager, context: vscode.ExtensionContext) {
 	const baseTheme = await vscode.window.showQuickPick(
 		[
-			{ label: "Darkula", id: "darkula" },
-			{ label: "Lightula", id: "lightula" },
+			{ label: "Intellij Darkula Classic", id: "intellij-darkula-classic" },
+			{ label: "Intellij Darkula Modern", id: "intellij-darkula-modern" },
+			{ label: "Intellij Lightula", id: "intellij-lightula" },
 			{ label: "Microsoft Dark", id: "microsoft-dark" },
 			{ label: "Microsoft Light", id: "microsoft-light" },
 		],
@@ -262,8 +254,6 @@ async function editTheme(themeManager: ThemeManager, context: vscode.ExtensionCo
 }
 
 function getThemeEditorHtml(webview: vscode.Webview, context: vscode.ExtensionContext, themeData: any, themeName: string): string {
-	const scriptUri = webview.asWebviewUri(vscode.Uri.file(path.join(context.extensionPath, "src", "webview", "themeEditor.js")));
-
 	return `
         <!DOCTYPE html>
         <html lang="en">
@@ -372,7 +362,7 @@ function getThemeEditorHtml(webview: vscode.Webview, context: vscode.ExtensionCo
                     if (themeData.colors) {
                         const colorSection = document.createElement('div');
                         colorSection.className = 'section';
-                        colorSection.innerHTML = '<div class="section-title">Colors</div>';
+                        colorSection.innerHTML = '<div class="section-title">UI Colors</div>';
                         
                         for (const [key, value] of Object.entries(themeData.colors)) {
                             const group = document.createElement('div');
@@ -392,7 +382,7 @@ function getThemeEditorHtml(webview: vscode.Webview, context: vscode.ExtensionCo
                     if (themeData.tokenColors) {
                         const tokenSection = document.createElement('div');
                         tokenSection.className = 'section';
-                        tokenSection.innerHTML = '<div class="section-title">Token Colors</div>';
+                        tokenSection.innerHTML = '<div class="section-title">Syntax Colors</div>';
                         
                         themeData.tokenColors.forEach((token, index) => {
                             const group = document.createElement('div');
@@ -421,7 +411,6 @@ function getThemeEditorHtml(webview: vscode.Webview, context: vscode.ExtensionCo
                 function updateColor(event) {
                     const element = event.target;
                     const isColorInput = element.classList.contains('color-input');
-                    const isColorPicker = element.classList.contains('color-picker');
                     
                     const colorKey = element.dataset.colorKey;
                     const tokenIndex = element.dataset.tokenIndex;

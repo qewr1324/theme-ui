@@ -3,7 +3,7 @@
 	"type": "module",
 	"displayName": "Theme UI",
 	"description": "🧶 Theme UI - Theme UI is an extension for creating and building your own custom theme for 💠 VSCode. ",
-	"version": "1.15.25",
+	"version": "1.31.26",
 	"private": false,
 	"publisher": "GhurbeSABZI",
 	"packageManager": "bun@1.3.14",
@@ -46,14 +46,19 @@
 	"contributes": {
 		"themes": [
 			{
-				"label": "Darkula (IntelliJ Dark Classic)",
+				"label": "Intellij Darkula Classic",
 				"uiTheme": "vs-dark",
-				"path": "./src/themes/darkula.json"
+				"path": "./src/themes/intellij-darkula-classic.json"
 			},
 			{
-				"label": "Lightula (IntelliJ Light Classic)",
+				"label": "Intellij Darkula Modern",
+				"uiTheme": "vs-dark",
+				"path": "./src/themes/intellij-darkula-modern.json"
+			},
+			{
+				"label": "Intellij Lightula",
 				"uiTheme": "vs",
-				"path": "./src/themes/lightula.json"
+				"path": "./src/themes/intellij-lightula.json"
 			},
 			{
 				"label": "Microsoft Dark",
@@ -64,26 +69,6 @@
 				"label": "Microsoft Light",
 				"uiTheme": "vs",
 				"path": "./src/themes/microsoft-light.json"
-			},
-			{
-				"label": "GhurbeSABZI Darkula",
-				"uiTheme": "vs-dark",
-				"path": "./src/themes/ghurbeSABZI-darkula.json"
-			},
-			{
-				"label": "GhurbeSABZI Microsoft",
-				"uiTheme": "vs-dark",
-				"path": "./src/themes/ghurbeSABZI-microsoft.json"
-			},
-			{
-				"label": "GhurbeSABZI Intellij Classic",
-				"uiTheme": "vs-dark",
-				"path": "./src/themes/ghurbeSABZI-intellij-classic.json"
-			},
-			{
-				"label": "GhurbeSABZI Intellij Modern",
-				"uiTheme": "vs-dark",
-				"path": "./src/themes/ghurbeSABZI-intellij-modern.json"
 			}
 		],
 		"commands": [

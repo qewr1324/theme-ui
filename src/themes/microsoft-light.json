@@ -4,10 +4,14 @@
 	"colors": {
 		"editor.background": "#FFFFFF",
 		"editor.foreground": "#000000",
-		"editor.lineHighlightBackground": "#F0F0F0",
+		"editor.lineHighlightBackground": "#F5F5F5",
 		"editor.selectionBackground": "#ADD6FF",
-		"activityBar.background": "#DDDDDD",
-		"activityBar.foreground": "#333333",
+		"editor.findMatchBackground": "#A8AC94",
+		"editorGutter.background": "#FFFFFF",
+		"editorLineNumber.foreground": "#237893",
+		"editorLineNumber.activeForeground": "#0B216F",
+		"activityBar.background": "#2C2C2C",
+		"activityBar.foreground": "#FFFFFF",
 		"sideBar.background": "#F3F3F3",
 		"sideBar.foreground": "#333333",
 		"statusBar.background": "#007ACC",
@@ -15,50 +19,67 @@
 		"titleBar.activeBackground": "#DDDDDD",
 		"terminal.background": "#FFFFFF",
 		"terminal.foreground": "#000000",
-		"panel.background": "#FFFFFF"
+		"panel.background": "#FFFFFF",
+		"input.background": "#FFFFFF",
+		"input.foreground": "#333333",
+		"input.border": "#CECECE",
+		"dropdown.background": "#FFFFFF",
+		"dropdown.foreground": "#333333",
+		"button.background": "#007ACC",
+		"button.foreground": "#FFFFFF",
+		"badge.background": "#C4C4C4",
+		"badge.foreground": "#333333",
+		"scrollbarSlider.background": "#C1C1C199",
+		"scrollbarSlider.hoverBackground": "#A8A8A8B3",
+		"scrollbarSlider.activeBackground": "#78787899",
+		"list.activeSelectionBackground": "#0060C0",
+		"list.activeSelectionForeground": "#FFFFFF",
+		"list.hoverBackground": "#E8E8E8",
+		"list.highlightForeground": "#0066BF",
+		"notifications.background": "#F3F3F3",
+		"notifications.foreground": "#333333",
+		"notificationLink.foreground": "#006AB1",
+		"gitDecoration.addedResourceForeground": "#587C0C",
+		"gitDecoration.modifiedResourceForeground": "#895503",
+		"gitDecoration.deletedResourceForeground": "#AD0707",
+		"gitDecoration.untrackedResourceForeground": "#007100",
+		"gitDecoration.ignoredResourceForeground": "#8E8E90",
+		"gitDecoration.conflictingResourceForeground": "#AD0707"
+	},
+	"semanticHighlighting": true,
+	"semanticTokenColors": {
+		"class": "#267F99",
+		"interface": "#267F99",
+		"enum": "#267F99",
+		"enumMember": "#0000FF",
+		"typeParameter": "#267F99",
+		"type": "#267F99",
+		"parameter": "#001080",
+		"variable": "#001080",
+		"property": "#001080",
+		"method": "#795E26",
+		"function": "#795E26",
+		"keyword": "#0000FF",
+		"number": "#098658",
+		"string": "#A31515",
+		"comment": "#008000",
+		"operator": "#000000",
+		"namespace": "#0000FF"
 	},
 	"tokenColors": [
-		{
-			"name": "Comments",
-			"scope": ["comment"],
-			"settings": {
-				"foreground": "#008000"
-			}
-		},
-		{
-			"name": "Keywords",
-			"scope": ["keyword", "storage.type"],
-			"settings": {
-				"foreground": "#0000FF"
-			}
-		},
-		{
-			"name": "Strings",
-			"scope": ["string"],
-			"settings": {
-				"foreground": "#A31515"
-			}
-		},
-		{
-			"name": "Functions",
-			"scope": ["entity.name.function"],
-			"settings": {
-				"foreground": "#795E26"
-			}
-		},
-		{
-			"name": "Types",
-			"scope": ["entity.name.type"],
-			"settings": {
-				"foreground": "#267F99"
-			}
-		},
-		{
-			"name": "Numbers",
-			"scope": ["constant.numeric"],
-			"settings": {
-				"foreground": "#098658"
-			}
-		}
+		{ "scope": ["comment"], "settings": { "foreground": "#008000" } },
+		{ "scope": ["keyword", "storage.type", "storage.modifier", "constant.language"], "settings": { "foreground": "#0000FF" } },
+		{ "scope": ["string", "string.quoted"], "settings": { "foreground": "#A31515" } },
+		{ "scope": ["constant.numeric"], "settings": { "foreground": "#098658" } },
+		{ "scope": ["entity.name.function", "support.function"], "settings": { "foreground": "#795E26" } },
+		{ "scope": ["entity.name.type.class", "entity.name.type.interface", "entity.name.type.enum", "entity.name.type", "support.class"], "settings": { "foreground": "#267F99" } },
+		{ "scope": ["variable", "variable.other", "variable.parameter"], "settings": { "foreground": "#001080" } },
+		{ "scope": ["keyword.operator"], "settings": { "foreground": "#000000" } },
+		{ "scope": ["entity.name.tag"], "settings": { "foreground": "#800000" } },
+		{ "scope": ["entity.other.attribute-name"], "settings": { "foreground": "#FF0000" } },
+		{ "scope": ["support.type.property-name.css"], "settings": { "foreground": "#FF0000" } },
+		{ "scope": ["markup.heading"], "settings": { "foreground": "#000080", "fontStyle": "bold" } },
+		{ "scope": ["markup.italic"], "settings": { "fontStyle": "italic" } },
+		{ "scope": ["markup.bold"], "settings": { "fontStyle": "bold" } }
 	]
 }
