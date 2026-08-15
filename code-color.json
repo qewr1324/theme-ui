@@ -1,0 +1,33 @@
+"workbench.colorCustomizations": {
+    // شماره 1: رنگ پس‌زمینه Explorer (سمت راست/چپ)
+    "sideBar.background": "#3a3f3e",
+    
+    // شماره 2: رنگ پس‌زمینه پایین‌ترین نوار در Explorer (مثل JAVA PROJECTS)
+    "sideBarSectionHeader.background": "#353a37",
+    
+    // شماره 3: رنگ نوار وضعیت پایین صفحه (Status Bar)
+    "statusBar.background": "#3a3f3e",
+    "statusBar.noFolderBackground": "#3a3f3e",
+    "statusBar.debuggingBackground": "#3a3f3e",
+
+    // شماره 4 و 5: رنگ پس‌زمینه نوار ابزار کناری (Activity Bar)
+    "activityBar.background": "#3a3f3e",
+    
+    // شماره 4 (آیکون‌ها): رنگ آیکون‌های نوار کناری
+    "activityBar.foreground": "#ffffff",
+    
+    // شماره 6: رنگ نوار جستجو و هدر بالای صفحه (Title Bar)
+    "titleBar.activeBackground": "#3a3f3e",
+    "titleBar.inactiveBackground": "#3a3f3e",
+    
+    // قسمت وسط و نوار جستجو (جایی که نوشته‌اید Search Bar Area و #454948)
+    // برای اینکه نوار جستجو و منوها رنگ متفاوتی داشته باشند:
+    "menubar.selectionBackground": "#454948",
+    "input.background": "#454948", 
+    "input.foreground": "#ffffff",
+    
+    // رنگ عمومی متن‌ها در بخش‌های تیره (اگر نیاز بود متن‌ها سفید شوند)
+    "sideBar.foreground": "#ffffff",
+    "statusBar.foreground": "#ffffff",
+    "titleBar.activeForeground": "#ffffff"
+}
