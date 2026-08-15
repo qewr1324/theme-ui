@@ -45,54 +45,54 @@ export function activate(context: vscode.ExtensionContext) {
 async function showThemeMenu(themeManager: ThemeManager, context: vscode.ExtensionContext) {
 	const menuOptions = [
 		{
-			label: "$(color-mode) Intellij Themes",
+			label: "Intellij Themes",
 			kind: vscode.QuickPickItemKind.Separator,
 		},
 		{
-			label: "Intellij Darkula Classic",
-			description: "IntelliJ classic dark (orange/yellow syntax)",
+			label: "$(triangle-right) Intellij Darkula Classic",
+			description: "IntelliJ classic dark (🔶 borange/yellow syntax)",
 			themeId: "intellij-darkula-classic",
 		},
 		{
-			label: "Intellij Darkula Modern",
-			description: "IntelliJ modern dark (blue syntax)",
+			label: "$(triangle-right) Intellij Darkula Modern",
+			description: "IntelliJ modern dark (🔷 blue syntax)",
 			themeId: "intellij-darkula-modern",
 		},
 		{
-			label: "Intellij Lightula",
+			label: "$(triangle-right) Intellij Lightula",
 			description: "IntelliJ light theme",
 			themeId: "intellij-lightula",
 		},
 		{
-			label: "$(color-mode) Microsoft Themes",
+			label: "Microsoft Themes",
 			kind: vscode.QuickPickItemKind.Separator,
 		},
 		{
-			label: "Microsoft Dark",
+			label: "$(triangle-right) Microsoft Dark",
 			description: "Microsoft dark theme",
 			themeId: "microsoft-dark",
 		},
 		{
-			label: "Microsoft Light",
+			label: "$(triangle-right) Microsoft Light",
 			description: "Microsoft light theme",
 			themeId: "microsoft-light",
 		},
 		{
-			label: "$(star) GhurbeSABZI Themes",
+			label: "GhurbeSABZI Themes",
 			kind: vscode.QuickPickItemKind.Separator,
 		},
 		{
-			label: "GhurbeSABZI Darkest",
+			label: "$(triangle-right) GhurbeSABZI Darkest",
 			description: "Dark military green theme with MS syntax",
 			themeId: "ghurbeSABZI-darkest",
 		},
 		{
-			label: "GhurbeSABZI Lightest",
+			label: "$(triangle-right) GhurbeSABZI Lightest",
 			description: "Light green theme with IntelliJ syntax",
 			themeId: "ghurbeSABZI-lightest",
 		},
 		{
-			label: "$(folder) Self Themes",
+			label: "Self Themes",
 			kind: vscode.QuickPickItemKind.Separator,
 		},
 		...themeManager.getCustomThemes().map((theme) => ({
@@ -102,44 +102,44 @@ async function showThemeMenu(themeManager: ThemeManager, context: vscode.Extensi
 			isCustom: true,
 		})),
 		{
-			label: "$(add) Create Theme From...",
+			label: "Create Theme From...",
 			kind: vscode.QuickPickItemKind.Separator,
 		},
 		{
-			label: "Create from Intellij Darkula Classic",
+			label: "$(folder) Create from Intellij Darkula Classic",
 			description: "Create new theme based on IntelliJ classic dark",
 			baseTheme: "intellij-darkula-classic",
 		},
 		{
-			label: "Create from Intellij Darkula Modern",
+			label: "$(folder) Create from Intellij Darkula Modern",
 			description: "Create new theme based on IntelliJ modern dark",
 			baseTheme: "intellij-darkula-modern",
 		},
 		{
-			label: "Create from Intellij Lightula",
+			label: "$(folder) Create from Intellij Lightula",
 			description: "Create new theme based on IntelliJ light",
 			baseTheme: "intellij-lightula",
 		},
 		{
-			label: "Create from Microsoft Dark",
+			label: "$(folder) Create from Microsoft Dark",
 			description: "Create new theme based on Microsoft dark",
 			baseTheme: "microsoft-dark",
 		},
 		{
-			label: "Create from Microsoft Light",
+			label: "$(folder) Create from Microsoft Light",
 			description: "Create new theme based on Microsoft light",
 			baseTheme: "microsoft-light",
 		},
 		{
-			label: "Create from GhurbeSABZI Darkest",
+			label: "$(folder) Create from GhurbeSABZI Darkest",
 			description: "Create new theme based on GhurbeSABZI Darkest",
 			baseTheme: "ghurbeSABZI-darkest",
 		},
 		{
-			label: "Create from GhurbeSABZI Lightest",
+			label: "$(folder) Create from GhurbeSABZI Lightest",
 			description: "Create new theme based on GhurbeSABZI Lightest",
 			baseTheme: "ghurbeSABZI-lightest",
-		}
+		},
 	];
 
 	const selected = await vscode.window.showQuickPick(menuOptions, {
